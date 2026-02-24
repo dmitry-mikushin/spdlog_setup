@@ -360,7 +360,7 @@ void read_template_file_into_stringstream(
         const auto pre_toml_content = pre_toml_ss.str();
 
         const auto toml_content =
-            format(pre_toml_content, std::forward<Ps>(ps)...);
+            fmt::vformat(pre_toml_content, fmt::make_format_args(ps...));
 
         toml_ss << toml_content;
     } catch (const exception &e) {
