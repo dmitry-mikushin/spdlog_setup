@@ -536,7 +536,7 @@ auto find_value_from_map(
 
 template <class Fn, class ErrFn>
 auto add_msg_on_err(Fn &&fn, ErrFn &&add_msg_on_err_fn) ->
-    typename std::result_of<Fn()>::type {
+    std::invoke_result_t<Fn> {
 
     // std
     using std::exception;
